@@ -1,9 +1,9 @@
 #pragma once
 
 /* Defines members and functionality of BullCowGame class */
-// **TODO**: Add functionality to select new word from preallocated word bank
 
 #include <string>
+#include <vector>
 
 using FString = std::string; //Unreal alias substitution
 using int32 = int;           //Unreal alias substitution
@@ -33,6 +33,7 @@ public:
 	EGuessStatus CheckGuessValidity(FString Guess) const;
 	bool IsGameWon() const;
 
+	void PopulateWordBank();
 	void Reset();
 	FBullCowCount SubmitValidGuess(FString Guess);
 
@@ -41,7 +42,9 @@ private:
 	int32 MyMaxTries;
 	FString MyHiddenWord;
 	bool bGameIsWon;
+	std::vector<FString> MyWordBank;
 
 	bool IsIsogram(FString Word) const;
 	bool IsLowercase(FString Word) const;
+	FString ChooseHiddenWord();
 };

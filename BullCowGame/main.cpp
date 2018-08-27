@@ -25,6 +25,8 @@ FBullCowGame BCGame; //instance used across all plays
 int main()
 {
 	bool bPlayAgain = false;
+	BCGame.PopulateWordBank();
+
 	do {
 		PrintIntro();
 		PlayGame();
